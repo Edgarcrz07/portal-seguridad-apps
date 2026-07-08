@@ -430,6 +430,58 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+        <!-- ============================================================ -->
+    <!-- CHATBOT FLOTANTE -->
+    <!-- ============================================================ -->
+    <!-- Botón para abrir el chat -->
+    <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()">
+        <i class="fas fa-robot"></i>
+        <span>Chat IA</span>
+    </button>
+
+    <!-- Ventana del chatbot -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h3>Asistente de Seguridad</h3>
+                    <span>Desarrollo Seguro de Aplicaciones</span>
+                </div>
+            </div>
+            <button class="chatbot-close" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chatbot-message bot">
+                👋 ¡Hola! Soy tu asistente experto en <strong>Desarrollo Seguro de Aplicaciones</strong>.<br><br>
+                Puedo ayudarte con:
+                <ul style="margin-top:4px;padding-left:16px;font-size:12px;">
+                    <li>Metodología S-SDLC</li>
+                    <li>Modelo STRIDE</li>
+                    <li>OWASP Top 10</li>
+                    <li>SAST / DAST / SCA</li>
+                    <li>DevSecOps</li>
+                </ul>
+                <div style="font-size:10px;color:#6b7a8f;margin-top:4px;">💡 Escribe tu consulta abajo</div>
+            </div>
+        </div>
+        <div class="chatbot-suggestions">
+            <button onclick="sendSuggestion('¿Qué es el modelo STRIDE?')">🔐 STRIDE</button>
+            <button onclick="sendSuggestion('¿Cuáles son las fases de S-SDLC?')">📋 S-SDLC</button>
+            <button onclick="sendSuggestion('¿Qué es SAST?')">💻 SAST</button>
+            <button onclick="sendSuggestion('¿Qué es DevSecOps?')">🚀 DevSecOps</button>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+            <button onclick="sendChatMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        <div id="chatbotError" class="chatbot-error"></div>
+    </div>
+
     <!-- ============================================================ -->
     <!-- SCRIPTS -->
     <!-- ============================================================ -->
