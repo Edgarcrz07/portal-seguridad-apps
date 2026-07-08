@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Seguridad de Apps - Edgar Cruz</title>
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- HEADER / NAVEGACIÓN -->
+    <!-- ============================================================ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure<span>Dev</span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#ssdlc">S-SDLC</a></li>
+                    <li><a href="#stride">STRIDE</a></li>
+                    <li><a href="#seguridad">Seguridad</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: INICIO (HERO) -->
+    <!-- ============================================================ -->
+    <section id="inicio" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i> Desarrollo Seguro de Aplicaciones
+                </div>
+                <h1>Construye Aplicaciones <br /><span>Seguras desde el Inicio</span></h1>
+                <p>
+                    Metodologías, herramientas y mejores prácticas para integrar la seguridad
+                    en todo el ciclo de vida del desarrollo de software empresarial.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#ssdlc" class="btn-primary">
+                        <i class="fas fa-book-open"></i> Explorar Metodología
+                    </a>
+                    <a href="#contacto" class="btn-secondary">
+                        <i class="fas fa-comment"></i> Consultar Ahora
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Vulnerabilidades Analizadas</span>
+                    </div>
+                    <div>
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Niveles de Severidad</span>
+                    </div>
+                    <div>
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Tipos de Defectos</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-illustration">
+                    <i class="fas fa-shield-halved"></i>
+                    <div class="floating-icon icon-1"><i class="fas fa-code"></i></div>
+                    <div class="floating-icon icon-2"><i class="fas fa-lock"></i></div>
+                    <div class="floating-icon icon-3"><i class="fas fa-cloud"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: S-SDLC (Ciclo de Vida Seguro) -->
+    <!-- ============================================================ -->
+    <section id="ssdlc" class="section ssdlc">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Metodología</span>
+                <h2>Ciclo de Vida de Desarrollo <span>Seguro</span></h2>
+                <p>
+                    El S-SDLC integra la seguridad en cada fase del desarrollo, desde la concepción
+                    hasta la producción y mantenimiento.
+                </p>
+            </div>
+            <div class="ssdlc-grid">
+                <div class="ssdlc-card">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>1. Concepción</h3>
+                    <p>Definición de requisitos de seguridad, análisis de riesgos inicial y clasificación de datos.</p>
+                </div>
+                <div class="ssdlc-card">
+                    <div class="card-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                    <h3>2. Análisis</h3>
+                    <p>Modelado de amenazas (STRIDE), análisis de superficie de ataque y definición de controles.</p>
+                </div>
+                <div class="ssdlc-card">
+                    <div class="card-icon"><i class="fas fa-pen-ruler"></i></div>
+                    <h3>3. Diseño</h3>
+                    <p>Arquitectura segura, revisión de patrones de diseño y principios de mínimo privilegio.</p>
+                </div>
+                <div class="ssdlc-card">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3>4. Implementación</h3>
+                    <p>Codificación segura, análisis SAST en tiempo real y revisión de código por pares.</p>
+                </div>
+                <div class="ssdlc-card">
+                    <div class="card-icon"><i class="fas fa-vial"></i></div>
+                    <h3>5. Validación</h3>
+                    <p>Pruebas DAST, pruebas de penetración, análisis SCA y validación de controles.</p>
+                </div>
+                <div class="ssdlc-card">
+                    <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>6. Producción</h3>
+                    <p>Monitoreo continuo, gestión de incidentes y respuesta a vulnerabilidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: MODELO STRIDE -->
+    <!-- ============================================================ -->
+    <section id="stride" class="section stride">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Modelo de Amenazas</span>
+                <h2>Modelo <span>STRIDE</span></h2>
+                <p>
+                    Marco de referencia para identificar y clasificar amenazas de seguridad
+                    durante el modelado de amenazas en aplicaciones empresariales.
+                </p>
+            </div>
+            <div class="stride-grid">
+                <div class="stride-card">
+                    <div class="stride-icon" style="background:#ffebee;color:#c62828;"><i class="fas fa-user-secret"></i></div>
+                    <h3>S</h3>
+                    <p>Spoofing</p>
+                    <span class="stride-desc">Suplantación de identidad</span>
+                </div>
+                <div class="stride-card">
+                    <div class="stride-icon" style="background:#fff3e0;color:#e65100;"><i class="fas fa-pen"></i></div>
+                    <h3>T</h3>
+                    <p>Tampering</p>
+                    <span class="stride-desc">Alteración de datos</span>
+                </div>
+                <div class="stride-card">
+                    <div class="stride-icon" style="background:#fff8e1;color:#f57f17;"><i class="fas fa-ban"></i></div>
+                    <h3>R</h3>
+                    <p>Repudiation</p>
+                    <span class="stride-desc">Negación de acciones</span>
+                </div>
+                <div class="stride-card">
+                    <div class="stride-icon" style="background:#e3f2fd;color:#1565c0;"><i class="fas fa-eye"></i></div>
+                    <h3>I</h3>
+                    <p>Info Disclosure</p>
+                    <span class="stride-desc">Divulgación de información</span>
+                </div>
+                <div class="stride-card">
+                    <div class="stride-icon" style="background:#fce4ec;color:#880e4f;"><i class="fas fa-power-off"></i></div>
+                    <h3>D</h3>
+                    <p>Denial of Service</p>
+                    <span class="stride-desc">Denegación de servicio</span>
+                </div>
+                <div class="stride-card">
+                    <div class="stride-icon" style="background:#e8f5e9;color:#2e7d32;"><i class="fas fa-arrow-up"></i></div>
+                    <h3>E</h3>
+                    <p>Elevation of Privilege</p>
+                    <span class="stride-desc">Elevación de privilegios</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: SEGURIDAD (SAST, DAST, SCA) -->
+    <!-- ============================================================ -->
+    <section id="seguridad" class="section seguridad">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Herramientas</span>
+                <h2>Análisis de <span>Seguridad</span></h2>
+                <p>
+                    Herramientas fundamentales para identificar y corregir vulnerabilidades
+                    en el ciclo de desarrollo.
+                </p>
+            </div>
+            <div class="seguridad-grid">
+                <div class="seguridad-card">
+                    <div class="seguridad-icon" style="background:#1a3a5c;color:#fff;">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>SAST</h3>
+                    <p class="seguridad-sub">Static Application Security Testing</p>
+                    <p>Análisis estático del código fuente para identificar vulnerabilidades antes de la compilación.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Detecta SQL Injection</li>
+                        <li><i class="fas fa-check-circle"></i> Identifica XSS</li>
+                        <li><i class="fas fa-check-circle"></i> Buffer overflows</li>
+                    </ul>
+                </div>
+                <div class="seguridad-card">
+                    <div class="seguridad-icon" style="background:#c62828;color:#fff;">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>DAST</h3>
+                    <p class="seguridad-sub">Dynamic Application Security Testing</p>
+                    <p>Pruebas dinámicas sobre la aplicación en ejecución para simular ataques reales.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Simula ataques reales</li>
+                        <li><i class="fas fa-check-circle"></i> Detecta fallos de autenticación</li>
+                        <li><i class="fas fa-check-circle"></i> Fuzzing y CSRF</li>
+                    </ul>
+                </div>
+                <div class="seguridad-card">
+                    <div class="seguridad-icon" style="background:#2e7d32;color:#fff;">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>SCA</h3>
+                    <p class="seguridad-sub">Software Composition Analysis</p>
+                    <p>Análisis de dependencias y librerías de terceros en busca de vulnerabilidades conocidas.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Detecta librerías obsoletas</li>
+                        <li><i class="fas fa-check-circle"></i> CVE tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Licencias y compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: RECURSOS -->
+    <!-- ============================================================ -->
+    <section id="recursos" class="section recursos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Recursos</span>
+                <h2>Guías y <span>Buenas Prácticas</span></h2>
+                <p>
+                    Recursos esenciales para fortalecer la seguridad en el desarrollo de aplicaciones.
+                </p>
+            </div>
+            <div class="recursos-grid">
+                <div class="recurso-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Guía S-SDLC</h3>
+                    <p>Documento completo con las fases y controles del ciclo de vida seguro.</p>
+                    <a href="#" class="btn-outline"><i class="fas fa-download"></i> Descargar</a>
+                </div>
+                <div class="recurso-card">
+                    <i class="fas fa-list-check"></i>
+                    <h3>Checklist STRIDE</h3>
+                    <p>Lista de verificación para modelado de amenazas en aplicaciones.</p>
+                    <a href="#" class="btn-outline"><i class="fas fa-download"></i> Descargar</a>
+                </div>
+                <div class="recurso-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Prompt IA Segura</h3>
+                    <p>Guía de prompts para usar IA en análisis de seguridad de código.</p>
+                    <a href="#" class="btn-outline"><i class="fas fa-download"></i> Descargar</a>
+                </div>
+                <div class="recurso-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Training OWASP</h3>
+                    <p>Módulos de entrenamiento en las 10 vulnerabilidades más críticas.</p>
+                    <a href="#" class="btn-outline"><i class="fas fa-external-link"></i> Ver más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: FAQ (Preguntas Frecuentes) -->
+    <!-- ============================================================ -->
+    <section id="faq" class="section faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Preguntas Frecuentes</span>
+                <h2>FAQ <span>Seguridad</span></h2>
+                <p>
+                    Respuestas a las preguntas más comunes sobre desarrollo seguro de aplicaciones.
+                </p>
+            </div>
+            <div class="faq-container" id="faqContainer">
+                <!-- Las preguntas se cargan desde faq.json con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: CONTACTO (Formulario + Mapa + WhatsApp) -->
+    <!-- ============================================================ -->
+    <section id="contacto" class="section contacto">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contacto</span>
+                <h2>¿Necesitas <span>Ayuda?</span></h2>
+                <p>
+                    Completa el formulario y te asesoraremos sobre seguridad en tus aplicaciones.
+                </p>
+            </div>
+            <div class="contacto-grid">
+                <!-- Formulario -->
+                <div class="contacto-form">
+                    <form id="contactForm" onsubmit="return enviarFormulario(event)">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Nombre completo</label>
+                            <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Correo electrónico</label>
+                            <input type="email" id="correo" placeholder="juan@empresa.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Teléfono</label>
+                            <input type="tel" id="telefono" placeholder="+504 9999-9999" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-building"></i> Empresa</label>
+                            <input type="text" id="empresa" placeholder="Nombre de tu empresa" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Consulta</label>
+                            <textarea id="consulta" rows="4" placeholder="Describe tu necesidad o proyecto..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i> Enviar Consulta
+                        </button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+
+                <!-- Información de contacto + Mapa -->
+                <div class="contacto-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+                        <p>Tegucigalpa, Honduras</p>
+                        <!-- Mapa -->
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61943.36219321273!2d-87.204667!3d14.083291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6fa3353d5d6d9d%3A0x3bdd4f02b2d25c12!2sTegucigalpa!5e0!3m2!1ses!2shn!4v1234567890"
+                                width="100%"
+                                height="200"
+                                style="border:0; border-radius:10px;"
+                                allowfullscreen=""
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Horario de Atención</h3>
+                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                        <p>Sábado: 9:00 AM - 1:00 PM</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-phone"></i> Contacto Directo</h3>
+                        <p><i class="fas fa-whatsapp" style="color:#25D366;"></i> <a href="https://wa.me/504XXXXXXXX?text=Hola%20quiero%20consultar%20sobre%20seguridad%20en%20aplicaciones" target="_blank">+504 XXXX-XXXX</a></p>
+                        <p><i class="fas fa-envelope"></i> edgar.cruz@seguridadapps.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure<span>Dev</span></span>
+                </div>
+                <p>Portal especializado en Desarrollo Seguro de Aplicaciones Empresariales.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Metodologías</h4>
+                <ul>
+                    <li><a href="#ssdlc">S-SDLC</a></li>
+                    <li><a href="#stride">Modelo STRIDE</a></li>
+                    <li><a href="#seguridad">SAST / DAST / SCA</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guías descargables</a></li>
+                    <li><a href="#">OWASP Top 10</a></li>
+                    <li><a href="#">Checklist de seguridad</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#contacto">Formulario</a></li>
+                    <li><a href="https://wa.me/504XXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="mailto:edgar.cruz@seguridadapps.com"><i class="fas fa-envelope"></i> Correo</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 - Portal de Desarrollo Seguro de Aplicaciones | Edgar Eduardo Cruz Zerón</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <!-- ============================================================ -->
+    <a href="https://wa.me/504XXXXXXXX?text=Hola%20quiero%20consultar%20sobre%20seguridad%20en%20aplicaciones"
+       target="_blank"
+       class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS -->
+    <!-- ============================================================ -->
+    <script src="script.js"></script>
+</body>
+</html>
