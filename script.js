@@ -60,7 +60,7 @@ function toggleFAQ(element, index) {
 // ================================================================
 // 3. FORMULARIO - ENVÍO A GOOGLE SHEETS
 // ================================================================
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOMf1a8jJ-rDqYQZ3P4YEfh9ytk8hrt6nck60FzG6JkbWrzugdj7F8lHq6KTMaojc/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzk1Lp7kpgZlVqgsCS71HvbTbzzSPQJ8mZ1lk1C8xxmOAICQn7YzOmcj613qNItdZ6k/exec';
 
 async function enviarFormulario(event) {
     event.preventDefault();
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ⚠️ IMPORTANTE: Reemplaza TU_SCRIPT_ID con el ID real de tu Web App
 // O usa la misma URL que ya tienes en SCRIPT_URL
-const CHATBOT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOMf1a8jJ-rDqYQZ3P4YEfh9ytk8hrt6nck60FzG6JkbWrzugdj7F8lHq6KTMaojc/exec';
+const CHATBOT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzk1Lp7kpgZlVqgsCS71HvbTbzzSPQJ8mZ1lk1C8xxmOAICQn7YzOmcj613qNItdZ6k/exec';
 
 let chatHistorial = [];
 
