@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot - Seguridad de Apps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .chat-container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            max-width: 450px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #0b1a2e, #1a3a5c);
+            color: #fff;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-header i {
+            font-size: 28px;
+            color: #4fc3f7;
+        }
+
+        .chat-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .chat-header p {
+            font-size: 12px;
+            color: #b0c4de;
+        }
+
+        .chat-header .status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #4fc3f7;
+        }
+
+        .chat-header .status .dot {
+            width: 8px;
+            height: 8px;
+            background: #4fc3f7;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .messages {
+            flex: 1;
+            padding: 16px 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #f8fafc;
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 85%;
+            font-size: 14px;
+            line-height: 1.6;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            background: #1a3a5c;
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.assistant {
+            background: #fff;
+            color: #1a2332;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .message.assistant .source {
+            font-size: 10px;
+            color: #6b7a8f;
+            margin-top: 6px;
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 8px 20px;
+            background: #f8fafc;
+            border-top: 1px solid #e8ecf0;
+        }
+
+        .suggestions button {
+            background: #e8ecf0;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 12px;
+            color: #1a2332;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .suggestions button:hover {
+            background: #d0d7e2;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            padding: 14px 20px;
+            background: #fff;
+            border-top: 1px solid #e8ecf0;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #d0d7e2;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .input-area input:focus {
+            border-color: #1a3a5c;
+        }
+
+        .input-area button {
+            background: #1a3a5c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .input-area button:hover {
+            background: #0b1a2e;
+        }
+
+        .input-area button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .error {
+            color: #c62828;
+            font-size: 12px;
+            padding: 0 20px 8px 20px;
+            background: #fff;
+        }
+
+        /* Scrollbar */
+        .messages::-webkit-scrollbar {
+            width: 5px;
+        }
+        .messages::-webkit-scrollbar-track {
+            background: #f0f4f8;
+        }
+        .messages::-webkit-scrollbar-thumb {
+            background: #b0c4de;
+            border-radius: 10px;
+        }
+
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+            align-self: flex-start;
+        }
+
+        .typing span {
+            width: 8px;
+            height: 8px;
+            background: #b0c4de;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-8px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+                <h2>Asistente de Seguridad</h2>
+                <p>Desarrollo Seguro de Aplicaciones</p>
+            </div>
+            <div class="status">
+                <span class="dot"></span>
+                En línea
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="messages" id="messages">
+            <div class="message assistant">
+                👋 ¡Hola! Soy tu asistente experto en <strong>Desarrollo Seguro de Aplicaciones</strong>.<br><br>
+                Puedo ayudarte con:
+                <ul style="margin-top:6px;padding-left:18px;">
+                    <li>Metodología S-SDLC</li>
+                    <li>Modelo STRIDE</li>
+                    <li>OWASP Top 10</li>
+                    <li>SAST / DAST / SCA</li>
+                    <li>DevSecOps</li>
+                </ul>
+                <div class="source">💡 Haz clic en los botones de abajo o escribe tu consulta</div>
+            </div>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="suggestions">
+            <button onclick="sendSuggestion('¿Qué es el modelo STRIDE?')">🔐 STRIDE</button>
+            <button onclick="sendSuggestion('¿Cuáles son las fases de S-SDLC?')">📋 S-SDLC</button>
+            <button onclick="sendSuggestion('¿Qué es el análisis SAST?')">💻 SAST</button>
+            <button onclick="sendSuggestion('¿Qué es DevSecOps?')">🚀 DevSecOps</button>
+            <button onclick="sendSuggestion('¿Qué es OWASP Top 10?')">🛡️ OWASP</button>
+        </div>
+
+        <!-- Input -->
+        <div class="input-area">
+            <input type="text" id="input" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter') sendMessage()">
+            <button id="sendBtn" onclick="sendMessage()">Enviar</button>
+        </div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        // ================================================================
+        // CONFIGURACIÓN - REEMPLAZAR CON TU API KEY
+        // ================================================================
+        // ⚠️ IMPORTANTE: Esta API Key debe estar en el backend (Apps Script)
+        // Por seguridad, NO pongas la API Key directamente aquí en producción.
+        // Para este ejemplo, usamos un proxy o la configuración de Apps Script.
+        // ================================================================
+
+        // URL de tu Apps Script (con Gemini integrado)
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOMf1a8jJ-rDqYQZ3P4YEfh9ytk8hrt6nck60FzG6JkbWrzugdj7F8lHq6KTMaojc/exec'; // ⚠️ Reemplazar
+
+        let historial = [];
+
+        function sendSuggestion(texto) {
+            document.getElementById('input').value = texto;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('input');
+            const mensaje = input.value.trim();
+            const errorDiv = document.getElementById('error');
+            const sendBtn = document.getElementById('sendBtn');
+
+            if (!mensaje) return;
+
+            errorDiv.textContent = '';
+            const messagesDiv = document.getElementById('messages');
+
+            // Mostrar mensaje del usuario
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = mensaje;
+            messagesDiv.appendChild(userMsg);
+            input.value = '';
+            sendBtn.disabled = true;
+            sendBtn.textContent = '...';
+
+            // Mostrar indicador de escritura
+            const typing = document.createElement('div');
+            typing.className = 'typing';
+            typing.innerHTML = '<span></span><span></span><span></span>';
+            messagesDiv.appendChild(typing);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            historial.push({ role: 'user', content: mensaje });
+
+            // Enviar al backend (Apps Script)
+            fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        mensaje: mensaje,
+                        historial: historial
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    // Remover indicador de escritura
+                    messagesDiv.removeChild(typing);
+
+                    if (data.error) {
+                        errorDiv.textContent = '❌ ' + data.error;
+                        sendBtn.disabled = false;
+                        sendBtn.textContent = 'Enviar';
+                        return;
+                    }
+
+                    // Mostrar respuesta
+                    const responseMsg = document.createElement('div');
+                    responseMsg.className = 'message assistant';
+                    responseMsg.innerHTML = data.respuesta.replace(/\n/g, '<br>');
+                    if (data.fuente) {
+                        const source = document.createElement('div');
+                        source.className = 'source';
+                        source.textContent = '📎 ' + data.fuente;
+                        responseMsg.appendChild(source);
+                    }
+                    messagesDiv.appendChild(responseMsg);
+                    historial.push({ role: 'assistant', content: data.respuesta });
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = 'Enviar';
+                })
+                .catch(err => {
+                    messagesDiv.removeChild(typing);
+                    errorDiv.textContent = '❌ Error de conexión: ' + err.message;
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = 'Enviar';
+                });
+        }
+
+        // Scroll automático al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+    {
+        "pregunta": "¿Qué es el Desarrollo Seguro de Aplicaciones?",
+        "respuesta": "Es una metodología que integra prácticas de seguridad en todas las fases del ciclo de vida del desarrollo de software, desde la concepción hasta la producción, para minimizar vulnerabilidades y proteger la información."
+    },
+    {
+        "pregunta": "¿Cuáles son las fases del S-SDLC?",
+        "respuesta": "Las 6 fases son: 1) Concepción, 2) Análisis, 3) Diseño, 4) Implementación, 5) Validación y 6) Producción. Cada fase incluye actividades específicas de seguridad como modelado de amenazas, revisión de código y pruebas de penetración."
+    },
+    {
+        "pregunta": "¿Qué significa el acrónimo STRIDE?",
+        "respuesta": "STRIDE es un modelo de amenazas que clasifica 6 tipos: S-Spoofing (suplantación), T-Tampering (alteración), R-Repudiation (negación), I-Information Disclosure (divulgación de información), D-Denial of Service (denegación de servicio) y E-Elevation of Privilege (elevación de privilegios)."
+    },
+    {
+        "pregunta": "¿Qué diferencia hay entre SAST, DAST y SCA?",
+        "respuesta": "SAST (Static Application Security Testing) analiza el código fuente estáticamente antes de la compilación. DAST (Dynamic Application Security Testing) prueba la aplicación en ejecución simulando ataques. SCA (Software Composition Analysis) analiza dependencias y librerías de terceros en busca de vulnerabilidades conocidas."
+    },
+    {
+        "pregunta": "¿Qué es OWASP Top 10?",
+        "respuesta": "Es una lista de las 10 vulnerabilidades más críticas en aplicaciones web, publicada por la Open Web Application Security Project (OWASP). Sirve como referencia para priorizar esfuerzos de seguridad y educar a los equipos de desarrollo."
+    },
+    {
+        "pregunta": "¿Cómo implementar DevSecOps?",
+        "respuesta": "DevSecOps integra seguridad en el pipeline de CI/CD, automatizando pruebas SAST/DAST/SCA, implementando políticas de seguridad como código (Security as Code) y fomentando una cultura de responsabilidad compartida por la seguridad entre todos los equipos."
+    },
+    {
+        "pregunta": "¿Qué herramientas se recomiendan para SAST?",
+        "respuesta": "Algunas herramientas populares son: SonarQube, Checkmarx, Fortify, Veracode y Semgrep. La elección depende del lenguaje, presupuesto y requisitos de integración con el pipeline."
+    },
+    {
+        "pregunta": "¿Qué es el modelado de amenazas?",
+        "respuesta": "Es un proceso estructurado para identificar, clasificar y priorizar amenazas potenciales en una aplicación. Utiliza modelos como STRIDE y DREAD para evaluar riesgos y definir controles de seguridad adecuados."
+    }
+]
