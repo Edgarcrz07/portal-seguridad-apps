@@ -162,6 +162,7 @@ function sendSuggestion(texto) {
 }
 
 // Función para enviar mensaje
+// Función para enviar mensaje
 function sendChatMessage() {
     const input = document.getElementById('chatbotInput');
     if (!input) return;
@@ -181,7 +182,7 @@ function sendChatMessage() {
     const messagesDiv = document.getElementById('chatbotMessages');
     if (!messagesDiv) return;
 
-    // Mostrar mensaje del usuario
+    // Mostrar mensaje del usuario en la interfaz
     const userMsg = document.createElement('div');
     userMsg.className = 'chatbot-message user';
     userMsg.textContent = mensaje;
@@ -192,20 +193,24 @@ function sendChatMessage() {
 
     chatHistorial.push({ role: 'user', content: mensaje });
 
-    // Enviar a Apps Script
+    // ================================================================
+    // SOLUCIÓN CORS: Conversión a formulario clásico
+    // ================================================================
+    const formBody = new URLSearchParams();
+    formBody.append('json', JSON.stringify({
+        mensaje: mensaje,
+        historial: chatHistorial
+    }));
+
+    // Enviar a Apps Script usando Content-Type simple que salta el Preflight de CORS
     fetch(CHATBOT_SCRIPT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            mensaje: mensaje,
-            historial: chatHistorial
-        })
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: formBody
     })
-    .then(res => res.text())
-    .then(text => {
-        let data;
-        try { data = JSON.parse(text); } catch { data = { respuesta: text || "✅ Mensaje recibido." }; }
-        
+    .then(res => res.json()) // Procesamos la respuesta JSON estructurada directamente
+    .then(data => {
         sendBtn.disabled = false;
         sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i>';
 
@@ -236,7 +241,6 @@ function sendChatMessage() {
         }
     });
 }
-
 // Cerrar chatbot al hacer clic fuera
 document.addEventListener('click', function(e) {
     const window = document.getElementById('chatbotWindow');
